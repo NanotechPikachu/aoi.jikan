@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "jikan4.js": "^1.5.8",
+    "path": "^0.12.7"
+  },
+  "name": "aoi.jikan",
+  "version": "1.0.0",
+  "description": "aoi.jikan - Brings anime and manga info to aoi.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Hi\" to all"
+  },
+  "keywords": [
+    "aoi.jikan",
+    "anime",
+    "aoi.js",
+    "aoi",
+    "dbd",
+    "dbd.js",
+    "mal",
+    "manga"
+  ],
+  "author": "NanotechPikachu",
+  "license": "ISC"
+}
