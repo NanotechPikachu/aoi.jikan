@@ -31,11 +31,11 @@ module.exports = {
           console.log("\x1b[33m|\x1b[0m \x1b[33merrorsType: " + et + " |\x1b[0m")
             console.log(" ");
         } else {
-            warn.newWarn("Version '"+vers+"' not found, please set version to \"v1\". If you dont change it to supported version aoi.jikan will not work.")
+            warn.newWarn("Version '"+vers+"' not found, please set version to \"v1\". If you dont change it to supported version, aoi.jikan will not work.")
         };
 
         if (et !== "console" && et !== "msg" && et !== "message" && et !== "none") {
-            warn.newWarn(`Unknown 'ErrorsType' option type. AoiTables Errors would not be shown.`);
+            warn.newWarn(`Unknown 'ErrorsType' option type. aoi.jikan Errors would not be shown.`);
         };
     },
 
