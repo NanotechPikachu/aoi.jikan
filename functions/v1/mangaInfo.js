@@ -2,7 +2,7 @@ const { JIKAN_CLIENT } = require('../../func/jikan.js');
 const error = require('../../utils/error.js');
 
 module.exports = {
-  name: "$animeInfo",
+  name: "$mangaInfo",
   type: "djs",
   code: async d => {
     const data = d.util.aoiFunc(d);
