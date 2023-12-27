@@ -49,6 +49,8 @@ To know the functions and usage, visit [anime cmds](https://nanotech-wiki.vercel
 - `$animeCharInfo`
 - `$mangaInfo`
 - `$mangaCharInfo`
+- `$randomMangaID`
+- `$randomAnimeID`
 
 <h2 align="center">
   Credits

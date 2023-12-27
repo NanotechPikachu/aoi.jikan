@@ -10,6 +10,8 @@ module.exports = {
 
     let [sfw] = data.inside.splits;
 
+    sfw = sfw.trim().toLowerCase();
+    
     if (sfw != "true" && sfw != "false") return error.newError(d, "Invalid Boolean in sfw option");
 
     sfw = (sfw === "true")
