@@ -140,6 +140,6 @@ module.exports = {
     data.result = result;
     return {
       code: d.util.setCode(data),
-    }
+    };
 }
 } 
