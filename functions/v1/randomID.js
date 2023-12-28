@@ -9,7 +9,7 @@ module.exports = {
 
     if (data.err) return d.error(data.err); 
     
-    let [type = "anime", sfw = "true"] = data.inside.splits;
+    let [type, sfw = "true"] = data.inside.splits;
 
     type = type.trim().toLowerCase();
     sfw = sfw.trim().toLowerCase();

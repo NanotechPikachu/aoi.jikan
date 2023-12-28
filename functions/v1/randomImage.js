@@ -15,7 +15,7 @@ module.exports = {
     id = id.trim().toLowerCase();
 
     if (type != "anime" && type != "manga") return error.newError(d, "Invalid type specified. It must be \'anime\' or \'manga\'");
-    if (isNaN(id)) return error.newError(d, "Invalid \'id\' specified")
+    if (isNaN(id) && id != "random") return error.newError(d, "Invalid \'id\' specified")
 
     let result;
     let res;
@@ -25,16 +25,11 @@ module.exports = {
 
     try {
       if (type === "anime") {
-        res = await JIKAN_CLIENT.anime.get(id);
-        imgArray = await JIKAN_CLIENT.anime.getPictures(id);      
+        res = (id !== "random") ? await JIKAN_CLIENT.anime.get(id) : await JIKAN_CLIENT.anime.random();
+        imgArray = (id !== "random") ? await JIKAN_CLIENT.anime.getPictures(id) : await JIKAN_CLIENT.anime.getPictures(res.id);     
       } else if (type === "manga") {
-        res = await JIKAN_CLIENT.manga.get(id);
-        imgArray = await JIKAN_CLIENT.manga.getPictures(id);
-      }
-
-      if (!res) return error.newError(d, "Invalid anime/manga ID specified.")
-      if (imgArray.length === 0) {
-        result = null;
+        res = (id !== "random") ? await JIKAN_CLIENT.manga.get(id) : await JIKAN_CLIENT.manga.random();
+        imgArray = (id !== "random") ? await JIKAN_CLIENT.manga.getPictures(id) : await JIKAN_CLIENT.manga.getPictures(res.id);
       };
       
       do {
