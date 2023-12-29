@@ -26,11 +26,15 @@ module.exports = {
     try {
       if (type === "anime") {
         res = (id !== "random") ? await JIKAN_CLIENT.anime.get(id) : await JIKAN_CLIENT.anime.random();
+        if (!res) return error.newError(d, "Invalid anime ID");
         imgArray = (id !== "random") ? await JIKAN_CLIENT.anime.getPictures(id) : await JIKAN_CLIENT.anime.getPictures(res.id);     
       } else if (type === "manga") {
         res = (id !== "random") ? await JIKAN_CLIENT.manga.get(id) : await JIKAN_CLIENT.manga.random();
+        if (!res) return error.newError(d, "Invalid manga ID");
         imgArray = (id !== "random") ? await JIKAN_CLIENT.manga.getPictures(id) : await JIKAN_CLIENT.manga.getPictures(res.id);
       };
+
+      if (imgArray.length === 0) return error.newError(d, "No images found.");
       
       do {
           random = Math.floor(Math.random() * imgArray.length);

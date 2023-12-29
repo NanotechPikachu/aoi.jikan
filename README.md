@@ -38,7 +38,7 @@ aoijikan.setup({
   Docs
 </h2>
 
-To know the functions and usage, visit [anime cmds](https://nanotech-wiki.vercel.app/custom/anime/) and [manga cmds](https://nanotech-wiki.vercel.app/custom/manga/)
+To know the functions and usage, visit [DOCS](https://nanotech-wiki.vercel.app/package/aoijikan/)
 
 <h2 align="center">
   Current Functions
@@ -47,12 +47,14 @@ To know the functions and usage, visit [anime cmds](https://nanotech-wiki.vercel
 - `$getID`
 - `$animeInfo`
 - `$animeCharInfo`
+- `$animeEpisodes`
 - `$mangaInfo`
 - `$mangaCharInfo`
 - `$randomMangaID`
 - `$randomAnimeID`
 - `$randomID`
 - `$randomImage`
+- `$randomCharImg`
 
 <h2 align="center">
   Credits
