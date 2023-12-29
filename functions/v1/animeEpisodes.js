@@ -8,7 +8,8 @@ module.exports = {
     const data = d.util.aoiFunc(d);
 
     if (data.err) return d.error(data.err); 
-    let [id, res, sep = "\n"] = data.inside.splits;
+    
+    let [id, res, sep = ".\n"] = data.inside.splits;
 
     id = id.trim().toLowerCase();
     res = res.trim().toLowerCase();
@@ -46,7 +47,7 @@ module.exports = {
       } else {
         const m = epArr.map(item => item).join(sep);
         if (m.length >= 2000) {
-          const n = m.lastIndexOf('.', 2000)
+          const n = m.lastIndexOf(sep, 2000)
           if (n !== -1) {
             const f = m.substring(0, n + 1);
             result = f;
