@@ -9,7 +9,7 @@ module.exports = {
 
     if (data.err) return d.error(data.err); 
     
-    let [day, kid = "true", SFW = "true"] = data.inside.splits;
+    let [day, kid = "false", SFW = "true"] = data.inside.splits;
 
     try {
 

@@ -49,6 +49,7 @@ To know the functions and usage, visit [DOCS](https://nanotech-wiki.vercel.app/p
 - `$animeCharInfo`
 - `$animeEpisodes`
 - `$episodeInfo`
+- `$heartbeat`
 - `$mangaInfo`
 - `$mangaCharInfo`
 - `$randomMangaID`
