@@ -37,6 +37,8 @@ module.exports = {
         if (et !== "console" && et !== "msg" && et !== "message" && et !== "none") {
             warn.newWarn(`Unknown 'ErrorsType' option type. aoi.jikan Errors would not be shown.`);
         };
+       const { check } = require('./utils/new.js');
+       check('aoi.jikan');
     },
 
     getData: () => {
