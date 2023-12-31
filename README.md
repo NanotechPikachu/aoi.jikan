@@ -58,6 +58,7 @@ To know the functions and usage, visit [DOCS](https://nanotech-wiki.vercel.app/p
 - `$randomImage`
 - `$randomCharImg`
 - `$schedule`
+- `$upcoming`
 
 <h2 align="center">
   Credits
