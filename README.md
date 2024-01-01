@@ -52,12 +52,15 @@ To know the functions and usage, visit [DOCS](https://nanotech-wiki.vercel.app/p
 - `$heartbeat`
 - `$mangaInfo`
 - `$mangaCharInfo`
+- `$nextAir`
+- `$personInfo`
 - `$randomMangaID`
 - `$randomAnimeID`
 - `$randomID`
 - `$randomImage`
 - `$randomCharImg`
 - `$schedule`
+- `$trendingAnime`
 - `$upcoming`
 
 <h2 align="center">

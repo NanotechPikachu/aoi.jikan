@@ -6,11 +6,16 @@
     "semver": "^7.5.4"
   },
   "name": "aoi.jikan",
-  "version": "1.3.9",
+  "version": "1.3.11",
   "description": "aoi.jikan - Brings anime and manga info to aoi.js",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Hi\" to all"
+  },
+  "homepage": "https://nanotech-wiki.vercel.app/package/aoijikan",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NanotechPikachu/aoi.jikan"
   },
   "keywords": [
     "aoi.jikan",
@@ -23,5 +28,5 @@
     "manga"
   ],
   "author": "NanotechPikachu",
-  "license": "ISC"
+  "license": "MIT"
 }
