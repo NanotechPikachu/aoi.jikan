@@ -60,6 +60,7 @@ To know the functions and usage, visit [DOCS](https://nanotech-wiki.vercel.app/p
 - `$randomImage`
 - `$randomCharImg`
 - `$searchChar`
+- `$searchAnime`
 - `$schedule`
 - `$trendingAnime`
 - `$trendingManga`
