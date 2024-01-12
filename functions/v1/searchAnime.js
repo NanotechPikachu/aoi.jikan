@@ -6,7 +6,6 @@ module.exports = {
   type: "djs",
   code: async d => {
     const data = d.util.aoiFunc(d);
-    if (data.err) return d.error(data.err);
   
     let [anime, count = "10", filter = "none", sfw = "true"] = data.inside.splits;
     
@@ -63,8 +62,6 @@ module.exports = {
         break;
     };
 
-    if (!an) return error.newError(d, "Anime not found");
-
     for (const obj of an) {
       if (i > count) break;
       anr.push(`${obj.title.default} | ${obj.id}`);
@@ -72,6 +69,8 @@ module.exports = {
     };
       
     result = anr.map(item => item).join("\n");
+
+    if (!result) return error.newError(d, "Anime not found");
 
     data.result = result;
     return {

@@ -8,8 +8,6 @@ module.exports = {
   type: "djs",
   code: async d => {
     const data = d.util.aoiFunc(d);
-
-    if (data.err) return d.error(data.err); 
     
     let [api] = data.inside.splits;
 

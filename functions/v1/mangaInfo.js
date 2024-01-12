@@ -6,12 +6,10 @@ module.exports = {
   type: "djs",
   code: async d => {
     const data = d.util.aoiFunc(d);
-
-    if (data.err) return d.error(data.err); 
     
     const [mangaID, res] = data.inside.splits;
     
-    if (!mangaID) return error.newError(d, "Anime ID not provided!")
+    if (!mangaID) return error.newError(d, "Manga ID not provided!")
     if (!res) return error.newError(d, "No result type specified.")
     
     const mID = mangaID.trim()

@@ -7,8 +7,6 @@ module.exports = {
   code: async d => {
     const data = d.util.aoiFunc(d);
 
-    if (data.err) return d.error(data.err);
-
     const [animeID, res] = data.inside.splits;
 
     if (!animeID) return error.newError(d, "Anime ID not provided!")

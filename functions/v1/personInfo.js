@@ -7,8 +7,6 @@ module.exports = {
   code: async d => {
     const data = d.util.aoiFunc(d);
 
-    if (data.err) return d.error(data.err);
-
     let [person, res = "name"] = data.inside.splits;
 
     if (!person) return error.newError(d, "Person not provided!")

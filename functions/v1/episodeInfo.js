@@ -7,8 +7,6 @@ module.exports = {
   code: async d => {
     const data = d.util.aoiFunc(d);
 
-    if (data.err) return d.error(data.err); 
-
     let [id, epId, res] = data.inside.splits;
 
     id = id.trim().toLowerCase();
@@ -16,7 +14,9 @@ module.exports = {
     epId = epId.trim().toLowerCase();
 
     type = ['url', 'title', 'id', 'aired', 'synopsis', 'duration']
-    
+
+    if (!id) return error.newError(d, "Anime ID not provided.");
+    if (!epId) return error.newError(d, "Episode ID not provided.");
     if (isNaN(id)) return error.newError(d, "Invalid anime ID.");
     if (isNaN(epId)) return error.newError(d, "Invalid episode ID.")
     if (!res) return error.newError(d, "Type not provided.");

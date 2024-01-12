@@ -6,8 +6,6 @@ module.exports = {
   type: "djs",
   code: async d => {
     const data = d.util.aoiFunc(d);
-
-    if (data.err) return d.error(data.err); 
     
     let [type, id] = data.inside.splits;
 
@@ -15,6 +13,7 @@ module.exports = {
     id = id.trim().toLowerCase();
 
     if (type != "anime" && type != "manga") return error.newError(d, "Invalid type specified. It must be \'anime\' or \'manga\'");
+    if (!id) return error.newError(d, "ID not provided.");
     if (isNaN(id) && id != "random") return error.newError(d, "Invalid \'id\' specified")
 
     let result;

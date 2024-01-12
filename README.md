@@ -48,6 +48,7 @@ To know the functions and usage, visit [DOCS](https://nanotech-wiki.vercel.app/p
 - `$animeInfo`
 - `$animeCharInfo`
 - `$animeEpisodes`
+- `$charInfo`
 - `$episodeInfo`
 - `$heartbeat`
 - `$mangaInfo`
@@ -61,6 +62,7 @@ To know the functions and usage, visit [DOCS](https://nanotech-wiki.vercel.app/p
 - `$randomCharImg`
 - `$searchChar`
 - `$searchAnime`
+- `$searchManga`
 - `$schedule`
 - `$strip`
 - `$trendingAnime`

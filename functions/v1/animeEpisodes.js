@@ -6,8 +6,6 @@ module.exports = {
   type: "djs",
   code: async d => {
     const data = d.util.aoiFunc(d);
-
-    if (data.err) return d.error(data.err); 
     
     let [id, res, sep = ".\n"] = data.inside.splits;
 
@@ -16,6 +14,7 @@ module.exports = {
 
     type = ['url', 'title', 'id', 'aired']
     
+    if (!id) return error.newError(d, "Anime ID not specified");
     if (isNaN(id)) return error.newError(d, "Invalid anime ID");
     if (!res) return error.newError(d, "Type not provided.");
     if (!type.includes(res)) return error.newError(d, "Invalid result type specified."); 

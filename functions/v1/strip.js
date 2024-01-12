@@ -5,7 +5,6 @@ module.exports = {
   type: "djs",
   code: async d => {
     const data = d.util.aoiFunc(d);
-    if (data.err) return d.error(data.err);
   
     let [text] = data.inside.splits;
 

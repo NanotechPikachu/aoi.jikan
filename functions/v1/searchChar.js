@@ -6,14 +6,15 @@ module.exports = {
   type: "djs",
   code: async d => {
     const data = d.util.aoiFunc(d);
-    if (data.err) return d.error(data.err);
   
     let [char, count = "10"] = data.inside.splits;
+
     try {
     char = char.trim().toLowerCase();
     count = count.trim().toLowerCase();
     count = parseInt(count);
 
+    if (!char) return error.newError(d, "Character not provided.");
     if (!count == true) return error.newError(d, "Invalid number provided")
     if (count > 30 || count < 1) return error.newError(d, "Count must be between \'1\' and \'30\'");
 

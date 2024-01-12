@@ -8,12 +8,10 @@ module.exports = {
   type: "djs",
   code: async d => {
     const data = d.util.aoiFunc(d);
-
-    if (data.err) return d.error(data.err); 
     
     const [mangaID, character, res] = data.inside.splits;
     
-    if (!mangaID) return error.newError(d, "Anime ID not provided.");
+    if (!mangaID) return error.newError(d, "Manga ID not provided.");
     if (!character) return error.newError(d, "Character not provided.");
     if (!res) return error.newError(d, "Enter the result type.")
     
