@@ -8,17 +8,20 @@ module.exports = {
     const data = d.util.aoiFunc(d);
   
     const [name, type = 'Anime'] = data.inside.splits;
+    
     if (!name) {
-        return error.newError(d, "Anime/Manga name not specified");
+        return error.newError(d, "Anime/Manga/Character name not specified");
     }
+    
     if (!type) return error.newError(d, "Type not specified.")
+    
     let searchResults;
     let foundID = null;
     const ty = type.toLowerCase().trim();
     const n = name.trim();
 
-    if (ty != 'anime' && ty != 'manga') {
-        return error.newError(d, "Invalid type specified. Either Manga / Anime only");
+    if (ty != 'anime' && ty != 'manga' && ty != 'char') {
+        return error.newError(d, "Invalid type specified. Either \'Manga / Anime / Char\' only");
     }
 
     switch (ty) {
@@ -28,18 +31,13 @@ module.exports = {
         case 'manga':
             searchResults = await JIKAN_CLIENT.manga.search(n);
             break;
+        case 'char':
+            searchResults = await JIKAN_CLIENT.characters.search(n);
     }
-    const quarterLength = Math.ceil(searchResults.length / 4);
 
-    for (let i = 0; i < quarterLength; i++) {
-        const result = searchResults[i].title.default.toLowerCase();
+    let i = 0;
 
-        if (n === result) {
-                foundID = searchResults[i].id;
-        } else {
-            foundID = searchResults[0].id;
-        }
-    }
+    foundID = searchResults[i]?.id;
 
     if (!foundID) {
         foundID = "NFError";
