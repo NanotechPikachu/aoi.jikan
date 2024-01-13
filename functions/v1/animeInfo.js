@@ -14,7 +14,7 @@ module.exports = {
 
     const aID = animeID.trim()
     const resu = res.trim().toLowerCase()
-    const type = ['title', 'synopsis', 'synopsis2', 'image', 'ratings', 'genre', 'url', 'episodes', 'recommendations', 'year', 'trailer', 'studio'];
+    const type = ['title', 'synopsis', 'image', 'ratings', 'genre', 'url', 'episodes', 'recommendations', 'year', 'trailer', 'studio'];
 
     if (!type.includes(resu)) return error.newError(d, "Invalid result type.");
 
@@ -28,26 +28,6 @@ module.exports = {
 
     if (!genres || genres.trim() === '') {
         genres = 'No genre information.';
-        }
-
-    let synopsis = '';
-    let synopsis2 = '\n';
-
-    //SPLITS SYNOPSIS IF TOO LONG INTO 2-3 PARAGRAPHS.
-    if (anime.synopsis) {
-        if (anime.synopsis.length > 1024) {
-            const midPoint = anime.synopsis.lastIndexOf('.', 1024);
-            if (midPoint !== -1) {
-                const synopsisFirstPart = anime.synopsis.substring(0, midPoint + 1);
-                const synopsisSecondPart = anime.synopsis.substring(midPoint + 1);
-                synopsis = synopsisFirstPart;
-                synopsis2 = synopsisSecondPart;
-                }
-        } else {
-            synopsis = anime.synopsis;
-        }
-    } else {
-         synopsis = 'Synopsis not found!';
         }
 
     let ratings = '';
@@ -81,8 +61,7 @@ module.exports = {
     }
 
     //SYNOPSIS, URL, EPISODES, GENRES, RATINGS, ETC.
-    const SYNOPSIS = synopsis;
-    const SYNOPSIS2 = synopsis2;
+    const SYNOPSIS = anime.synopsis || 'Synopsis not found.';
     const URL = anime.url ?? 'URL not found.';
     const EPISODES = anime.episodes?.toLocaleString() ?? 'Episodes info not found.';
     const GENRES = genres;
@@ -102,9 +81,6 @@ module.exports = {
             break;
         case 'synopsis':
             result = SYNOPSIS;
-            break;
-        case 'synopsis2':
-            result = SYNOPSIS2;
             break;
         case 'url':
             result = URL;
