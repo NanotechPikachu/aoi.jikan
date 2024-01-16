@@ -6,6 +6,7 @@ const warn = require("./utils/warn.js");
 module.exports = {
     setup: (Obj) => {
         const warn = require("./utils/warn.js");
+        const { err } = require('./utils/colorize.js');
 
         const bot = Obj.bot || Obj.client;
         const et = Obj.errorsType || "message";
@@ -25,11 +26,19 @@ module.exports = {
                     funcs
                 );
             };
-          console.log(`\x1b[34m|-----------------|\n\x1b[34m|----\x1b[34maoi.jikan\x1b[34m----|\n\x1b[34m|-----\x1b[34mLoaded.\x1b[34m-----|\n\x1b[34m|---\x1b[34mVersion: ${vers}\x1b[34m---|\n\x1b[34m|-----------------|\x1b[0m`);
+
+          err('red', '╭————————————————————————╮');
+          err('magenta', '|       aoi.jikan        |');
+          err('yellow', '|     Initialising...    |');
+          err('cyan', '|       Version 1        |');
+          err('green', '|        Loaded!         |')
+          err('red', '╰————————————————————————╯')
 
           console.log(" ");
-          console.log("\x1b[33m|\x1b[0m \x1b[33merrorsType: " + et + " |\x1b[0m")
-            console.log(" ");
+
+          err('blue', "| Errors Type: " + et + " |\x1b[0m");
+          
+          console.log(" ");
         } else {
             warn.newWarn("Version '"+vers+"' not found, please set version to \"v1\". If you dont change it to supported version, aoi.jikan will not work.")
         };
@@ -37,6 +46,7 @@ module.exports = {
         if (et !== "console" && et !== "msg" && et !== "message" && et !== "none") {
             warn.newWarn(`Unknown 'ErrorsType' option type. aoi.jikan Errors would not be shown.`);
         };
+      
        const { check } = require('./utils/new.js');
        check('aoi.jikan');
     },
