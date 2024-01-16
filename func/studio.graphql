@@ -1,0 +1,17 @@
+query ($search: String) {
+  Studio(search: $search) {
+    id
+    name
+    isAnimationStudio
+    siteUrl
+    media {
+      nodes {
+        title {
+          romaji
+          english
+          native
+        }
+      }
+    }
+  }
+}

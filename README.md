@@ -65,6 +65,7 @@ To know the functions and usage, visit [DOCS](https://nanotech-wiki.vercel.app/p
 - `$searchManga`
 - `$schedule`
 - `$strip`
+- `$studioInfo`
 - `$trendingAnime`
 - `$trendingManga`
 - `$upcoming`
