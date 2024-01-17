@@ -7,15 +7,15 @@ module.exports = {
   code: async d => {
     const data = d.util.aoiFunc(d);
 
-    let [sfw] = data.inside.splits;
-
+    let [sfw = "true"] = data.inside.splits;
+    
+    try {
     sfw = sfw.trim().toLowerCase();
     
     if (sfw != "true" && sfw != "false") return error.newError(d, "Invalid Boolean in sfw option");
 
     sfw = (sfw === "true")
 
-    try {
       const random = await JIKAN_CLIENT.manga.random(sfw)
       data.result = random.id;
       return {

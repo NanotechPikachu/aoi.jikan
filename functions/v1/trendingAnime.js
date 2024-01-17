@@ -12,11 +12,12 @@ module.exports = {
     let [api] = data.inside.splits;
 
     try {
-
-    api = api.trim().toLowerCase();
     let result;
     
     if (!api) return error.newError(d, "API not provided.");
+
+    api = api.trim().toLowerCase();
+      
     if (api != "mal" && api != "anilist") return error.newError(d, "Invalid API provided.");
 
     if (api === "anilist") {

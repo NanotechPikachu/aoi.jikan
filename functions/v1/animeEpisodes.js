@@ -9,14 +9,15 @@ module.exports = {
     
     let [id, res, sep = ".\n"] = data.inside.splits;
 
-    id = id.trim().toLowerCase();
-    res = res.trim().toLowerCase();
-
     type = ['url', 'title', 'id', 'aired']
     
     if (!id) return error.newError(d, "Anime ID not specified");
     if (isNaN(id)) return error.newError(d, "Invalid anime ID");
     if (!res) return error.newError(d, "Type not provided.");
+
+    id = id.trim().toLowerCase();
+    res = res.trim().toLowerCase();
+    
     if (!type.includes(res)) return error.newError(d, "Invalid result type specified."); 
     if (!sep) return error.newError(d, "Seperator not provided.")
     

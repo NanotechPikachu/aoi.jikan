@@ -8,11 +8,12 @@ module.exports = {
     const data = d.util.aoiFunc(d);
     
     let [type, id] = data.inside.splits;
-
+    
+    try {    
     type = type.trim().toLowerCase();
-    id = id.trim().toLowerCase();
 
     if (type != "anime" && type != "manga") return error.newError(d, "Invalid type specified. It must be \'anime\' or \'manga\'");
+    id = id.trim().toLowerCase();
     if (!id) return error.newError(d, "ID not provided.");
     if (isNaN(id)) return error.newError(d, "Invalid anime/manga ID");
     
@@ -22,7 +23,6 @@ module.exports = {
     let random;
     let set = new Set();
 
-    try {
       if (type === "anime") {
         res = await JIKAN_CLIENT.anime.get(id);
       if (!res) return error.newError(d, "custom", {}, "Anime not found.")

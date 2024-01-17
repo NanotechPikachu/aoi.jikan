@@ -10,12 +10,13 @@ module.exports = {
     let [season, res = "title", sep = "\n"] = data.inside.splits;
 
     try {
+      
+    if (!season) return error.newError(d, "Season not provided.");
+    if (!res) return error.newError(d, "Result not provided.");
 
     season = season.trim().toLowerCase();
     res = res.trim().toLowerCase();
     
-    if (!season) return error.newError(d, "Season not provided.");
-    if (!res) return error.newError(d, "Result not provided.");
     if (season != "current" && season != "next") return error.newError(d, "The season parameter must be either \`current\` or \`next\`.");
     if (res != "status" && res != "title" && res != "dynamic") return error.newError(d, "The result parameter must be either \'status\' or \'dynamic\' or \'title\'.")
 

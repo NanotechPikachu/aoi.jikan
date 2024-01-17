@@ -8,7 +8,8 @@ module.exports = {
     const data = d.util.aoiFunc(d);
     
     let [type, sfw = "true"] = data.inside.splits;
-
+    
+    try {
     type = type.trim().toLowerCase();
     sfw = sfw.trim().toLowerCase();
 
@@ -18,7 +19,6 @@ module.exports = {
     sfw = (sfw === "true");
     let random;
 
-    try {
       if (type === "anime") {
         random = await JIKAN_CLIENT.anime.random(sfw);
       } else if (type === "manga") {

@@ -7,7 +7,7 @@ module.exports = {
   code: async d => {
     const data = d.util.aoiFunc(d);
 
-    let [sfw] = data.inside.splits;
+    let [sfw = "true"] = data.inside.splits;
 
     sfw = sfw.trim().toLowerCase();
     

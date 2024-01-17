@@ -9,10 +9,6 @@ module.exports = {
 
     let [id, epId, res] = data.inside.splits;
 
-    id = id.trim().toLowerCase();
-    res = res.trim().toLowerCase();
-    epId = epId.trim().toLowerCase();
-
     type = ['url', 'title', 'id', 'aired', 'synopsis', 'duration']
 
     if (!id) return error.newError(d, "Anime ID not provided.");
@@ -20,6 +16,11 @@ module.exports = {
     if (isNaN(id)) return error.newError(d, "Invalid anime ID.");
     if (isNaN(epId)) return error.newError(d, "Invalid episode ID.")
     if (!res) return error.newError(d, "Type not provided.");
+
+    id = id.trim().toLowerCase();
+    res = res.trim().toLowerCase();
+    epId = epId.trim().toLowerCase();
+    
     if (!type.includes(res)) return error.newError(d, "Invalid result type specified."); 
     
     let result;

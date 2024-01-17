@@ -13,11 +13,11 @@ module.exports = {
 
     try {
 
-    anime = anime.trim().toLowerCase();
-    type = type.trim().toLowerCase();
-    
     if (!anime) return error.newError(d, "Anime not provided.");
     if (!type) return error.newError(d, "Result type not provided.");
+
+    anime = anime.trim().toLowerCase();
+    type = type.trim().toLowerCase();
 
     let ty = ['title', 'url', 'time', 'episode'];
     if (!ty.includes(type)) return error.newError(d, "Invalid result type provided.");

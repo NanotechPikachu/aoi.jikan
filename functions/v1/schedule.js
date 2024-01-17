@@ -10,14 +10,15 @@ module.exports = {
     let [day, kid = "false", SFW = "true"] = data.inside.splits;
 
     try {
-
-    day = day.trim().toLowerCase();
-    kid = kid.trim().toLowerCase();
-    SFW = SFW.trim().toLowerCase();
     
     if (!day) return error.newError(d, "Day not provided.");
     if (!kid) return error.newError(d, "Kid filter empty.");
     if (!SFW) return error.newError(d, "Sfw filter empty.")
+
+    day = day.trim().toLowerCase();
+    kid = kid.trim().toLowerCase();
+    SFW = SFW.trim().toLowerCase();
+      
     if (SFW != "true" && SFW != "false") return error.newError(d, "The sfw parameter must be boolean.")
     if (kid != "true" && kid != "false") return error.newError(d, "The kid parameter must be boolean.")
     

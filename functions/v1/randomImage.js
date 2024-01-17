@@ -8,7 +8,8 @@ module.exports = {
     const data = d.util.aoiFunc(d);
     
     let [type, id] = data.inside.splits;
-
+    
+    try {
     type = type.trim().toLowerCase();
     id = id.trim().toLowerCase();
 
@@ -22,7 +23,6 @@ module.exports = {
     let random;
     let set = new Set();
 
-    try {
       if (type === "anime") {
         res = (id !== "random") ? await JIKAN_CLIENT.anime.get(id) : await JIKAN_CLIENT.anime.random();
         if (!res) return error.newError(d, "Invalid anime ID");
