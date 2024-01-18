@@ -6,17 +6,19 @@ const warn = require("./utils/warn.js");
 module.exports = {
     setup: (Obj) => {
         const warn = require("./utils/warn.js");
-        const { err } = require('./utils/colorize.js');
+        const { err } = require('../../errorAoi.js');
 
         const bot = Obj.bot || Obj.client;
         const et = Obj.errorsType || "message";
         const vers = Obj.version || "v1";
+        const token = Obj.token || "None";
 
         this.data = {
             "client": bot,
             "dirname": process.cwd(),
             "errorsType": et,
-            "version": vers
+            "version": vers,
+            "token": token
         };
 
         if (vers && vers.toLowerCase() === "v1") {
@@ -33,6 +35,12 @@ module.exports = {
           err('cyan', '|       Version 1        |');
           err('green', '|        Loaded!         |')
           err('red', '╰————————————————————————╯')
+
+          if (token != "None") {
+          err('green', '╭————————————————————————╮');
+          err('red', '|  Waifu API integrated! |')
+          err('green', '╰————————————————————————╯')
+          };
 
           console.log(" ");
 
