@@ -30,7 +30,8 @@ const aoijikan = require("aoi.jikan");
 aoijikan.setup({
   client: client, // or bot as per your config
   errorsType: "message", // or "console"
-  version: "v1" //the latest and only
+  version: "v1", //the latest and only
+  token: "WAIFU API token" //its completely optional incase you wanna access the API's commands.
 });
 ```
 
@@ -55,6 +56,7 @@ To know the functions and usage, visit [DOCS](https://nanotech-wiki.vercel.app/p
 - `$mangaCharInfo`
 - `$nextAir`
 - `$personInfo`
+- `$quote`
 - `$randomMangaID`
 - `$randomAnimeID`
 - `$randomID`
