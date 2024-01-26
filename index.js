@@ -6,7 +6,7 @@ const warn = require("./utils/warn.js");
 module.exports = {
     setup: (Obj) => {
         const warn = require("./utils/warn.js");
-        const { err } = require('../../errorAoi.js');
+        const { err } = require('./utils/colorize.js');
 
         const bot = Obj.bot || Obj.client;
         const et = Obj.errorsType || "message";

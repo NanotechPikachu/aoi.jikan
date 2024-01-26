@@ -6,7 +6,7 @@
     "semver": "^7.5.4"
   },
   "name": "aoi.jikan",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "aoi.jikan - Brings anime and manga info to aoi.js",
   "main": "index.js",
   "scripts": {
